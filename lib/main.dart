@@ -21,6 +21,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.brown,
       ),
 
+      debugShowCheckedModeBanner: false,
+
       darkTheme: ThemeData(
         brightness:Brightness.dark,
         primarySwatch: Colors.pink,
