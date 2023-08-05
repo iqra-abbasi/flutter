@@ -1,4 +1,5 @@
 import 'package:app_in_java/login.dart';
+import 'package:app_in_java/sign-up-page.dart';
 import 'package:flutter/material.dart';
 
 void main()
@@ -14,6 +15,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: LoginPage(),
 
+      debugShowCheckedModeBanner: false,
+
+
       //theme of app
 
       themeMode:ThemeMode.light,
@@ -21,7 +25,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.brown,
       ),
 
-      debugShowCheckedModeBanner: false,
+
 
       darkTheme: ThemeData(
         brightness:Brightness.dark,

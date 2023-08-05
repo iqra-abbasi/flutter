@@ -12,150 +12,329 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   bool changebutton=false;
 
+  //for form validation
+  final _formKey = GlobalKey<FormState>();
+
+  //method create
+  moveToHome(BuildContext context) async
+  {
+    if (_formKey.currentState!.validate()) {
+      setState(() {
+        changebutton = true;
+      });
+
+      await Future.delayed(Duration(seconds: 1));
+      Navigator.push(
+          context, MaterialPageRoute(
+          builder: (context) => SignUp()));
+
+//after going to next page button comes to its original shape
+      setState(() {
+        changebutton = false;
+      });
+    }
+  }
+
+
+
+
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      backgroundColor: Colors.lightBlue,
+      backgroundColor: Colors.white70,
 
       appBar: AppBar(
-        title: Text("android app"),
-        backgroundColor: Colors.pink,
+        title: Text("Login Page"),
+        backgroundColor: Colors.purple,
       ),
 
 
       body:SingleChildScrollView(
         scrollDirection: Axis.vertical,
-        child: Column(
-          children: [
+        child: Form(
+
+          key:_formKey ,
+          child: Column(
+            children: [
 
 
-            Image.asset("assets/images/login.png",
-            fit: BoxFit.cover,),
+              Image.asset("assets/images/login.png",
+              fit: BoxFit.cover,),
 
 
-            SizedBox(
-              height: 5,
-            ),
+              SizedBox(
+                height:20,
+              ),
 
-            Text("WELCOME!",
-            style: TextStyle(
-              fontSize: 20,
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-            ),
-            textScaleFactor: 2.0,),
 
+              Text("LOGIN HERE!",
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.purple,
+                fontWeight: FontWeight.bold,
+              ),
+              textScaleFactor: 1.8,),
+
+SizedBox(
+  height: 10,
+),
 
 
 Padding(
-  padding: const EdgeInsets.symmetric(vertical: 14.0,horizontal: 32.0),
+  padding: const EdgeInsets.symmetric(vertical: 18.0,horizontal: 32.0),
   child:   Column(
 
     children: [
 
-        TextFormField(
+          Container(
+            alignment: Alignment.center,
+            width: 380,
+            height: 60,
 
-          decoration: InputDecoration(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(15),
+            ),
 
-            labelText: "UserName",
+            child: TextFormField(
+              keyboardType: TextInputType.emailAddress,
+              //obscureText: true,
+              //enabled: false,
 
-            hintText: "Enter User Name!",
+
+              decoration: InputDecoration(
+
+                focusedBorder: OutlineInputBorder(
+                 // borderRadius: BorderRadius.circular(15),
+                  borderSide: BorderSide(
+                    color: Colors.green,
+                  width: 2,
+                  ),
+                ),
 
 
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(21),
+                  borderSide: BorderSide(
+                    color: Colors.white54,
+                    width: 2,
+                  ),
+                ),
+
+               /* disabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(21),
+                  borderSide: BorderSide(
+                    color: Colors.green,
+                    width: 3,
+                  ),
+                ),
+
+                */
+suffixIcon: Icon(Icons.email,
+color: Colors.black,),
+
+                labelText: "Email",
+
+                hintText: " Enter Email!",
+
+
+              ),
+
+
+              //for validation
+              validator: (value)
+                {
+                  if(value!.isEmpty)
+                    {
+                      return "please enter your email";
+                    }
+                  return null;
+                },
+
+            ),
           ),
 
-        ),
-
-
-        //ElevatedButton(onPressed: onPressed, child: child)
-
-
-
-
-        TextFormField(
-
-          obscureText: true,
-
-          decoration: InputDecoration(
-
-            labelText: "Password",
-
-            hintText: "Enter User Password!!",
-
+          SizedBox(
+            height: 30,
           ),
 
-        ),
+
+          Container(
+
+            alignment: Alignment.center,
+            width: 380,
+            height: 60,
+
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(15),
+            ),
+
+            child: TextFormField(
+
+              obscureText: true,
+              keyboardType: TextInputType.number,
+              obscuringCharacter: "*",
+
+              decoration: InputDecoration(
+
+
+                focusedBorder: OutlineInputBorder(
+                  // borderRadius: BorderRadius.circular(15),
+                  borderSide: BorderSide(
+                    color: Colors.green,
+                    width: 2,
+                  ),
+                ),
+
+
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(21),
+                  borderSide: BorderSide(
+                    color: Colors.white54,
+                    width: 2,
+                  ),
+                ),
+
+                suffixIcon: Icon(Icons.password,
+                  color: Colors.black,),
 
 
 
+                labelText: "Password",
 
+                hintText: "Enter Password!!",
 
-        TextFormField(
+              ),
 
-          decoration: InputDecoration(
+              //validation
+              validator: (value)
+                {
+                  if(value!.isEmpty)
+                    {
+                      return "please enter your password";
+                    }
+                  else if(value.length<5)
+                    {
+                      return "please enter 5 digit password";
+                    }
+                  return null;
+                },
 
-            labelText: "Email",
-
-            hintText: "Enter User Email!",
-
+            ),
           ),
 
-        ),
+
+          SizedBox(
+            height: 20,
+          ),
 
 
-        SizedBox(
-          height: 30,
-        ),
+
+      Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            Text("Forget Password?",
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w600,
+              decoration: TextDecoration.underline,
+              decorationColor: Colors.purple,
+              color: Colors.purple,
+            ),)
+          ],
+      ),
+
+
+      SizedBox(
+          height: 35,
+      ),
+
 
 
 
       //container and inkwell
       InkWell(
-        onTap: ()
-        {
-
-        setState(()
-        {
-        changebutton=true;
-
-        });
-         /* Navigator.push(
-              context, MaterialPageRoute(
-              builder:(context) => SignUp()));
+          onTap: () => moveToHome(context),
 
 
-          */
-        },
-        child: AnimatedContainer(
 
-          duration: Duration(seconds: 1),
+          child: AnimatedContainer(
 
-          alignment: Alignment.center,
-          width: changebutton ? 50 : 160,
-          height: 50,
-          child: Text("LOGIN!",
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-            decoration: TextDecoration.underline,
-            decorationColor: Colors.white,
-          ),),
+            duration: Duration(seconds: 1),
 
-          decoration: BoxDecoration(
-            color: Colors.pink,
-            borderRadius: BorderRadius.circular(20),
+            alignment: Alignment.center,
+            width: changebutton ? 80 : 340,
+            height: 60,
+            child: changebutton ?
+            Icon(Icons.done ,
+              color: Colors.white,) :Text("Login",
+            style: TextStyle(
+              fontSize:changebutton ? 20: 26,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+              decoration: TextDecoration.underline,
+              decorationColor: Colors.white,
+            ),),
+
+            decoration: BoxDecoration(
+              //shape:changebutton ?  BoxShape.circle:BoxShape.rectangle,
+              color:changebutton ? Colors.redAccent: Colors.purple,
+              borderRadius: BorderRadius.circular(
+              changebutton ? 30 : 30),
+
+            ),
 
           ),
+      ),
 
-        ),
+      SizedBox(
+          height: 15,
+      ),
+
+      SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+              Text("Don't You Have an account?",
+              style: TextStyle(
+                fontWeight: FontWeight.w600,
+                fontSize: 20,
+                color: Colors.black54,
+              ),),
+
+              SizedBox(
+              width: 10,
+              ),
+
+
+              InkWell(
+                onTap: ()
+    {
+    Navigator.push(context, MaterialPageRoute(builder:(context) => SignUp()));
+
+    },
+                child: Text("Sign Up",
+                style: TextStyle(
+                  fontSize: 25,
+                  color: Colors.purple,
+                  decoration: TextDecoration.underline,
+                  decorationColor: Colors.purple,
+                ),
+                textScaleFactor: 1.0),
+              ),
+            ],
+          ),
       ),
     ],
 
   ),
 )
 
-          ],
+
+            ],
+          ),
         ),
       )
     );
