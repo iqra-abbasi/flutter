@@ -41,87 +41,87 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      backgroundColor: Colors.white70,
+        backgroundColor: Colors.white70,
 
-      appBar: AppBar(
-        title: Text("Login Page"),
-        backgroundColor: Colors.purple,
-      ),
-
-
-      body:SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Form(
-
-          key:_formKey ,
-          child: Column(
-            children: [
+        appBar: AppBar(
+          title: Text("Login Page"),
+          backgroundColor: Colors.purple,
+        ),
 
 
-              Image.asset("assets/images/login.png",
-              fit: BoxFit.cover,),
+        body:SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Form(
+
+            key:_formKey ,
+            child: Column(
+              children: [
 
 
-              SizedBox(
-                height:20,
-              ),
+                Image.asset("assets/images/login.png",
+                  fit: BoxFit.cover,),
 
 
-              Text("LOGIN HERE!",
-              style: TextStyle(
-                fontSize: 20,
-                color: Colors.purple,
-                fontWeight: FontWeight.bold,
-              ),
-              textScaleFactor: 1.8,),
-
-SizedBox(
-  height: 10,
-),
-
-
-Padding(
-  padding: const EdgeInsets.symmetric(vertical: 18.0,horizontal: 32.0),
-  child:   Column(
-
-    children: [
-
-          Container(
-            alignment: Alignment.center,
-            width: 380,
-            height: 60,
-
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(15),
-            ),
-
-            child: TextFormField(
-              keyboardType: TextInputType.emailAddress,
-              //obscureText: true,
-              //enabled: false,
-
-
-              decoration: InputDecoration(
-
-                focusedBorder: OutlineInputBorder(
-                 // borderRadius: BorderRadius.circular(15),
-                  borderSide: BorderSide(
-                    color: Colors.green,
-                  width: 2,
-                  ),
+                SizedBox(
+                  height:20,
                 ),
 
 
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(21),
-                  borderSide: BorderSide(
-                    color: Colors.white54,
-                    width: 2,
+                Text("LOGIN HERE!",
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.purple,
+                    fontWeight: FontWeight.bold,
                   ),
+                  textScaleFactor: 1.8,),
+
+                SizedBox(
+                  height: 10,
                 ),
 
-               /* disabledBorder: OutlineInputBorder(
+
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 18.0,horizontal: 32.0),
+                  child:   Column(
+
+                    children: [
+
+                      Container(
+                        alignment: Alignment.center,
+                        width: 380,
+                        height: 60,
+
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+
+                        child: TextFormField(
+                          keyboardType: TextInputType.emailAddress,
+                          //obscureText: true,
+                          //enabled: false,
+
+
+                          decoration: InputDecoration(
+
+                            focusedBorder: OutlineInputBorder(
+                              // borderRadius: BorderRadius.circular(15),
+                              borderSide: BorderSide(
+                                color: Colors.green,
+                                width: 2,
+                              ),
+                            ),
+
+
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(21),
+                              borderSide: BorderSide(
+                                color: Colors.white54,
+                                width: 2,
+                              ),
+                            ),
+
+                            /* disabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(21),
                   borderSide: BorderSide(
                     color: Colors.green,
@@ -130,213 +130,213 @@ Padding(
                 ),
 
                 */
-suffixIcon: Icon(Icons.email,
-color: Colors.black,),
+                            suffixIcon: Icon(Icons.email,
+                              color: Colors.black,),
 
-                labelText: "Email",
+                            labelText: "Email",
 
-                hintText: " Enter Email!",
-
-
-              ),
+                            hintText: " Enter Email!",
 
 
-              //for validation
-              validator: (value)
-                {
-                  if(value!.isEmpty)
-                    {
-                      return "please enter your email";
-                    }
-                  return null;
-                },
-
-            ),
-          ),
-
-          SizedBox(
-            height: 30,
-          ),
+                          ),
 
 
-          Container(
+                          //for validation
+                          validator: (value)
+                          {
+                            if(value!.isEmpty)
+                            {
+                              return "please enter your email";
+                            }
+                            return null;
+                          },
 
-            alignment: Alignment.center,
-            width: 380,
-            height: 60,
+                        ),
+                      ),
 
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(15),
-            ),
-
-            child: TextFormField(
-
-              obscureText: true,
-              keyboardType: TextInputType.number,
-              obscuringCharacter: "*",
-
-              decoration: InputDecoration(
+                      SizedBox(
+                        height: 30,
+                      ),
 
 
-                focusedBorder: OutlineInputBorder(
-                  // borderRadius: BorderRadius.circular(15),
-                  borderSide: BorderSide(
-                    color: Colors.green,
-                    width: 2,
+                      Container(
+
+                        alignment: Alignment.center,
+                        width: 380,
+                        height: 60,
+
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+
+                        child: TextFormField(
+
+                          obscureText: true,
+                          keyboardType: TextInputType.number,
+                          obscuringCharacter: "*",
+
+                          decoration: InputDecoration(
+
+
+                            focusedBorder: OutlineInputBorder(
+                              // borderRadius: BorderRadius.circular(15),
+                              borderSide: BorderSide(
+                                color: Colors.green,
+                                width: 2,
+                              ),
+                            ),
+
+
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(21),
+                              borderSide: BorderSide(
+                                color: Colors.white54,
+                                width: 2,
+                              ),
+                            ),
+
+                            suffixIcon: Icon(Icons.password,
+                              color: Colors.black,),
+
+
+
+                            labelText: "Password",
+
+                            hintText: "Enter Password!!",
+
+                          ),
+
+                          //validation
+                          validator: (value)
+                          {
+                            if(value!.isEmpty)
+                            {
+                              return "please enter your password";
+                            }
+                            else if(value.length<5)
+                            {
+                              return "please enter 5 digit password";
+                            }
+                            return null;
+                          },
+
+                        ),
+                      ),
+
+
+                      SizedBox(
+                        height: 20,
+                      ),
+
+
+
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text("Forget Password?",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w600,
+                              decoration: TextDecoration.underline,
+                              decorationColor: Colors.purple,
+                              color: Colors.purple,
+                            ),)
+                        ],
+                      ),
+
+
+                      SizedBox(
+                        height: 35,
+                      ),
+
+
+
+
+                      //container and inkwell
+                      InkWell(
+                        onTap: () => moveToHome(context),
+
+
+
+                        child: AnimatedContainer(
+
+                          duration: Duration(seconds: 1),
+
+                          alignment: Alignment.center,
+                          width: changebutton ? 80 : 340,
+                          height: 60,
+                          child: changebutton ?
+                          Icon(Icons.done ,
+                            color: Colors.white,) :Text("Login",
+                            style: TextStyle(
+                              fontSize:changebutton ? 20: 26,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                              decoration: TextDecoration.underline,
+                              decorationColor: Colors.white,
+                            ),),
+
+                          decoration: BoxDecoration(
+                            //shape:changebutton ?  BoxShape.circle:BoxShape.rectangle,
+                            color:changebutton ? Colors.redAccent: Colors.purple,
+                            borderRadius: BorderRadius.circular(
+                                changebutton ? 30 : 30),
+
+                          ),
+
+                        ),
+                      ),
+
+                      SizedBox(
+                        height: 15,
+                      ),
+
+                      SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          children: [
+                            Text("Don't You Have an account?",
+                              style: TextStyle(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 20,
+                                color: Colors.black54,
+                              ),),
+
+                            SizedBox(
+                              width: 10,
+                            ),
+
+
+                            InkWell(
+                              onTap: ()
+                              {
+                                Navigator.push(context, MaterialPageRoute(builder:(context) => SignUp()));
+
+                              },
+                              child: Text("Sign Up",
+                                  style: TextStyle(
+                                    fontSize: 25,
+                                    color: Colors.purple,
+                                    decoration: TextDecoration.underline,
+                                    decorationColor: Colors.purple,
+                                  ),
+                                  textScaleFactor: 1.0),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+
                   ),
-                ),
+                )
 
 
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(21),
-                  borderSide: BorderSide(
-                    color: Colors.white54,
-                    width: 2,
-                  ),
-                ),
-
-                suffixIcon: Icon(Icons.password,
-                  color: Colors.black,),
-
-
-
-                labelText: "Password",
-
-                hintText: "Enter Password!!",
-
-              ),
-
-              //validation
-              validator: (value)
-                {
-                  if(value!.isEmpty)
-                    {
-                      return "please enter your password";
-                    }
-                  else if(value.length<5)
-                    {
-                      return "please enter 5 digit password";
-                    }
-                  return null;
-                },
-
+              ],
             ),
           ),
-
-
-          SizedBox(
-            height: 20,
-          ),
-
-
-
-      Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            Text("Forget Password?",
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.w600,
-              decoration: TextDecoration.underline,
-              decorationColor: Colors.purple,
-              color: Colors.purple,
-            ),)
-          ],
-      ),
-
-
-      SizedBox(
-          height: 35,
-      ),
-
-
-
-
-      //container and inkwell
-      InkWell(
-          onTap: () => moveToHome(context),
-
-
-
-          child: AnimatedContainer(
-
-            duration: Duration(seconds: 1),
-
-            alignment: Alignment.center,
-            width: changebutton ? 80 : 340,
-            height: 60,
-            child: changebutton ?
-            Icon(Icons.done ,
-              color: Colors.white,) :Text("Login",
-            style: TextStyle(
-              fontSize:changebutton ? 20: 26,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-              decoration: TextDecoration.underline,
-              decorationColor: Colors.white,
-            ),),
-
-            decoration: BoxDecoration(
-              //shape:changebutton ?  BoxShape.circle:BoxShape.rectangle,
-              color:changebutton ? Colors.redAccent: Colors.purple,
-              borderRadius: BorderRadius.circular(
-              changebutton ? 30 : 30),
-
-            ),
-
-          ),
-      ),
-
-      SizedBox(
-          height: 15,
-      ),
-
-      SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            children: [
-              Text("Don't You Have an account?",
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
-                fontSize: 20,
-                color: Colors.black54,
-              ),),
-
-              SizedBox(
-              width: 10,
-              ),
-
-
-              InkWell(
-                onTap: ()
-    {
-    Navigator.push(context, MaterialPageRoute(builder:(context) => SignUp()));
-
-    },
-                child: Text("Sign Up",
-                style: TextStyle(
-                  fontSize: 25,
-                  color: Colors.purple,
-                  decoration: TextDecoration.underline,
-                  decorationColor: Colors.purple,
-                ),
-                textScaleFactor: 1.0),
-              ),
-            ],
-          ),
-      ),
-    ],
-
-  ),
-)
-
-
-            ],
-          ),
-        ),
-      )
+        )
     );
   }
 }

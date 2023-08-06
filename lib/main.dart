@@ -1,3 +1,4 @@
+import 'package:app_in_java/home-page.dart';
 import 'package:app_in_java/login.dart';
 import 'package:app_in_java/sign-up-page.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: LoginPage(),
+     // home: LoginPage(),
 
       debugShowCheckedModeBanner: false,
 
@@ -32,6 +33,18 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.pink,
       ),
 
+
+
+
+      //manually move from one page to another
+      initialRoute: "/",
+      routes: {
+        "/":(context) => HomePage(),
+        "":(context) => HomePage(),
+
+
+      },
     );
   }
 }
+
